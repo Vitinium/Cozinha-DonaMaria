@@ -1,0 +1,46 @@
+# Arquivos de build
+bin/
+obj/
+*.dll
+*.exe
+*.pdb
+*.cache
+*.log
+
+# Pastas do Visual Studio
+.vs/
+.vscode/
+
+# Arquivos de solução e projeto específicos do usuário
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Diretórios de publicação
+publish/
+out/
+
+# Resultados de testes
+TestResults/
+*.coverage
+*.coveragexml
+
+# Arquivos de pacotes NuGet
+*.nupkg
+*.snupkg
+*.nuspec
+packages/
+*.nuspec
+
+# Arquivos temporários
+*.tmp
+*.bak
+*.swp
+
+# Configurações de IDE
+*.ide
+*.dbmdl
+
+# Arquivos de configuração local
+appsettings.*.json
