@@ -1,0 +1,16 @@
+C:\Users\Sistemas\source\repos\DonaMaria\DonaMaria\obj\Debug\net8.0-windows\DonaMaria.Form1.resources
+C:\Users\Sistemas\source\repos\DonaMaria\DonaMaria\obj\Debug\net8.0-windows\DonaMaria.csproj.GenerateResource.cache
+C:\Users\Sistemas\source\repos\DonaMaria\DonaMaria\obj\Debug\net8.0-windows\DonaMaria.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Sistemas\source\repos\DonaMaria\DonaMaria\obj\Debug\net8.0-windows\DonaMaria.AssemblyInfoInputs.cache
+C:\Users\Sistemas\source\repos\DonaMaria\DonaMaria\obj\Debug\net8.0-windows\DonaMaria.AssemblyInfo.cs
+C:\Users\Sistemas\source\repos\DonaMaria\DonaMaria\obj\Debug\net8.0-windows\DonaMaria.csproj.CoreCompileInputs.cache
+C:\Users\Sistemas\source\repos\DonaMaria\DonaMaria\bin\Debug\net8.0-windows\DonaMaria.exe
+C:\Users\Sistemas\source\repos\DonaMaria\DonaMaria\bin\Debug\net8.0-windows\DonaMaria.deps.json
+C:\Users\Sistemas\source\repos\DonaMaria\DonaMaria\bin\Debug\net8.0-windows\DonaMaria.runtimeconfig.json
+C:\Users\Sistemas\source\repos\DonaMaria\DonaMaria\bin\Debug\net8.0-windows\DonaMaria.dll
+C:\Users\Sistemas\source\repos\DonaMaria\DonaMaria\bin\Debug\net8.0-windows\DonaMaria.pdb
+C:\Users\Sistemas\source\repos\DonaMaria\DonaMaria\obj\Debug\net8.0-windows\DonaMaria.dll
+C:\Users\Sistemas\source\repos\DonaMaria\DonaMaria\obj\Debug\net8.0-windows\refint\DonaMaria.dll
+C:\Users\Sistemas\source\repos\DonaMaria\DonaMaria\obj\Debug\net8.0-windows\DonaMaria.pdb
+C:\Users\Sistemas\source\repos\DonaMaria\DonaMaria\obj\Debug\net8.0-windows\DonaMaria.genruntimeconfig.cache
+C:\Users\Sistemas\source\repos\DonaMaria\DonaMaria\obj\Debug\net8.0-windows\ref\DonaMaria.dll
