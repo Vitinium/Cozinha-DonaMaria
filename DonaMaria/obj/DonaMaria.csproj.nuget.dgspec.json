@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Sistemas\\source\\repos\\DonaMaria\\DonaMaria\\DonaMaria.csproj": {}
+    "C:\\Users\\PICHAU\\Source\\Repos\\Cozinha-DonaMaria\\DonaMaria\\DonaMaria.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Sistemas\\source\\repos\\DonaMaria\\DonaMaria\\DonaMaria.csproj": {
+    "C:\\Users\\PICHAU\\Source\\Repos\\Cozinha-DonaMaria\\DonaMaria\\DonaMaria.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Sistemas\\source\\repos\\DonaMaria\\DonaMaria\\DonaMaria.csproj",
+        "projectUniqueName": "C:\\Users\\PICHAU\\Source\\Repos\\Cozinha-DonaMaria\\DonaMaria\\DonaMaria.csproj",
         "projectName": "DonaMaria",
-        "projectPath": "C:\\Users\\Sistemas\\source\\repos\\DonaMaria\\DonaMaria\\DonaMaria.csproj",
-        "packagesPath": "C:\\Users\\Sistemas\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Sistemas\\source\\repos\\DonaMaria\\DonaMaria\\obj\\",
+        "projectPath": "C:\\Users\\PICHAU\\Source\\Repos\\Cozinha-DonaMaria\\DonaMaria\\DonaMaria.csproj",
+        "packagesPath": "C:\\Users\\PICHAU\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\PICHAU\\Source\\Repos\\Cozinha-DonaMaria\\DonaMaria\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\Sistemas\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\PICHAU\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
