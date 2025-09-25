@@ -1,3 +1,5 @@
+using DonaMaria.Model;
+
 namespace DonaMaria
 {
     internal static class Program
@@ -11,7 +13,7 @@ namespace DonaMaria
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
-            Application.Run(new FrmQuiz());
+            Application.Run(new FormMenu());
         }
     }
 }
