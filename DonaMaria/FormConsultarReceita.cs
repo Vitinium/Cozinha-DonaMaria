@@ -16,5 +16,10 @@ namespace DonaMaria
         {
             InitializeComponent();
         }
+
+        private void FormConsultarReceita_Load(object sender, EventArgs e)
+        {
+            
+        }
     }
 }

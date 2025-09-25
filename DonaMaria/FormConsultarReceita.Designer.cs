@@ -102,6 +102,7 @@
             Controls.Add(label1);
             Name = "FormConsultarReceita";
             Text = "FormConsultarReceita";
+            Load += FormConsultarReceita_Load;
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
             PerformLayout();
