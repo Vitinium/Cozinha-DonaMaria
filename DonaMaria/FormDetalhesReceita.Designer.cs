@@ -38,13 +38,15 @@
             NomeIngrediente = new DataGridViewTextBoxColumn();
             Quantidade = new DataGridViewTextBoxColumn();
             Descricao = new DataGridViewTextBoxColumn();
+            label4 = new Label();
+            txtTpCozinha = new TextBox();
             ((System.ComponentModel.ISupportInitialize)Dtg).BeginInit();
             SuspendLayout();
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(12, 9);
+            label1.Location = new Point(13, 8);
             label1.Name = "label1";
             label1.Size = new Size(46, 15);
             label1.TabIndex = 0;
@@ -53,15 +55,15 @@
             // txtID
             // 
             txtID.Enabled = false;
-            txtID.Location = new Point(12, 28);
+            txtID.Location = new Point(13, 27);
             txtID.Name = "txtID";
-            txtID.Size = new Size(119, 23);
+            txtID.Size = new Size(46, 23);
             txtID.TabIndex = 1;
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(137, 9);
+            label2.Location = new Point(71, 9);
             label2.Name = "label2";
             label2.Size = new Size(40, 15);
             label2.TabIndex = 2;
@@ -70,9 +72,9 @@
             // txtNome
             // 
             txtNome.Enabled = false;
-            txtNome.Location = new Point(137, 27);
+            txtNome.Location = new Point(65, 27);
             txtNome.Name = "txtNome";
-            txtNome.Size = new Size(651, 23);
+            txtNome.Size = new Size(494, 23);
             txtNome.TabIndex = 3;
             // 
             // label3
@@ -124,6 +126,23 @@
             Descricao.Name = "Descricao";
             Descricao.Width = 450;
             // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Location = new Point(565, 8);
+            label4.Name = "label4";
+            label4.Size = new Size(91, 15);
+            label4.TabIndex = 0;
+            label4.Text = "Tipo de cozinha";
+            // 
+            // txtTpCozinha
+            // 
+            txtTpCozinha.Enabled = false;
+            txtTpCozinha.Location = new Point(565, 27);
+            txtTpCozinha.Name = "txtTpCozinha";
+            txtTpCozinha.Size = new Size(223, 23);
+            txtTpCozinha.TabIndex = 1;
+            // 
             // FormDetalhesReceita
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -134,6 +153,8 @@
             Controls.Add(label3);
             Controls.Add(txtNome);
             Controls.Add(label2);
+            Controls.Add(txtTpCozinha);
+            Controls.Add(label4);
             Controls.Add(txtID);
             Controls.Add(label1);
             Name = "FormDetalhesReceita";
@@ -156,5 +177,7 @@
         private DataGridViewTextBoxColumn NomeIngrediente;
         private DataGridViewTextBoxColumn Quantidade;
         private DataGridViewTextBoxColumn Descricao;
+        private Label label4;
+        private TextBox txtTpCozinha;
     }
 }

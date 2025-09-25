@@ -17,7 +17,7 @@ namespace DonaMaria.Model
         public List<IngredienteReceita> Ingredientes { get; set; }
 
         // "Banco de Dados" em memória para as receitas
-        private static List<Receita> Receitas = new List<Receita>();
+        public static List<Receita> Receitas = new List<Receita>();
 
         // Construtor para garantir que a lista de ingredientes de uma receita nunca seja nula
         public Receita()
@@ -53,5 +53,15 @@ namespace DonaMaria.Model
             }
             return Receitas.Where(r => r.Nome.ToLower().Contains(nome.ToLower())).ToList();
         }
+
+        public static void Excluir(int id)
+        {
+            var receitaParaExcluir = Receitas.FirstOrDefault(r => r.ID == id);
+            if (receitaParaExcluir != null)
+            {
+                Receitas.Remove(receitaParaExcluir);
+            }
+        }
+
     }
 }

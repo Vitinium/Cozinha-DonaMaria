@@ -14,6 +14,13 @@ namespace DonaMaria
     public partial class FormCadastrarReceita : Form
     {
         private List<IngredienteReceita> ingredientesDaReceitaAtual = new List<IngredienteReceita>();
+        private Receita receitaParaEditar = null;
+        public FormCadastrarReceita(Receita receitaSelecionada)
+        {
+            InitializeComponent();
+            this.receitaParaEditar = receitaSelecionada;
+        }
+
         public FormCadastrarReceita()
         {
             InitializeComponent();
@@ -31,6 +38,20 @@ namespace DonaMaria
 
             // Configura o grid de ingredientes da receita
             DtG.AutoGenerateColumns = false;
+            if (receitaParaEditar != null)
+            {
+                // Preenche os campos com os dados da receita
+                TxtNome.Text = receitaParaEditar.Nome;
+                txtModoPreparo.Text = receitaParaEditar.ModoPreparo;
+                cmbTipoCozinha.SelectedValue = receitaParaEditar.TipoCozinha.ID;
+
+                // Carrega a lista de ingredientes da receita para a lista temporária da tela
+                ingredientesDaReceitaAtual = new List<IngredienteReceita>(receitaParaEditar.Ingredientes);
+                AtualizarGridIngredientes();
+
+                // Muda o texto do botão
+                BtnSalvar.Text = "Atualizar";
+            }
         }
 
         private bool VerificaControles()
@@ -62,6 +83,8 @@ namespace DonaMaria
             // Adiciona na lista temporária e atualiza o grid
             ingredientesDaReceitaAtual.Add(novoItem);
             AtualizarGridIngredientes();
+            cmbIngredientes.SelectedIndex = -1;
+            numQuantidade.Value = 1;
         }
 
         private void AtualizarGridIngredientes()
@@ -74,19 +97,32 @@ namespace DonaMaria
         {
             if (VerificaControles())
             {
-                Receita novaReceita = new Receita();
-                novaReceita.Nome = TxtNome.Text;
-                novaReceita.ModoPreparo = txtModoPreparo.Text;
-                novaReceita.TipoCozinha = (TipoCozinha)cmbTipoCozinha.SelectedItem;
+                if (receitaParaEditar == null)
+                {
+                    Receita novaReceita = new Receita();
 
-                // Atribui a lista de ingredientes que montamos
-                novaReceita.Ingredientes = new List<IngredienteReceita>(ingredientesDaReceitaAtual);
+                    novaReceita.Nome = TxtNome.Text;
+                    novaReceita.ModoPreparo = txtModoPreparo.Text;
+                    novaReceita.TipoCozinha = (TipoCozinha)cmbTipoCozinha.SelectedItem;
+                    novaReceita.Ingredientes = new List<IngredienteReceita>(ingredientesDaReceitaAtual);
+                    // =========================================================
 
-                // Salva na "memória"
-                novaReceita.Incluir();
+                    novaReceita.Incluir();
+                    MessageBox.Show("Receita salva com sucesso!");
+                    LimparCampos();
+                }
+                // Se não, é uma ATUALIZAÇÃO (seu código de 'else' já está correto)
+                else
+                {
+                    receitaParaEditar.Nome = TxtNome.Text;
+                    receitaParaEditar.ModoPreparo = txtModoPreparo.Text;
+                    receitaParaEditar.TipoCozinha = (TipoCozinha)cmbTipoCozinha.SelectedItem;
+                    receitaParaEditar.Ingredientes = new List<IngredienteReceita>(ingredientesDaReceitaAtual);
 
-                MessageBox.Show("Receita salva com sucesso!");
-                LimparCampos();
+                    MessageBox.Show("Receita atualizada com sucesso!");
+                    LimparCampos();
+                    this.Close(); // Fecha o formulário após a atualização
+                }
             }
         }
 
@@ -100,6 +136,50 @@ namespace DonaMaria
             cmbTipoCozinha.SelectedIndex = -1;
             cmbIngredientes.SelectedIndex = -1;
             numQuantidade.Value = 1;
+        }
+
+        private void FormCadastrarReceita_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            if (this.MdiParent != null)
+            {
+                FormMenu ofrm = (FormMenu)this.MdiParent;
+                ofrm.cadastroReceitasToolStripMenuItem.Enabled = true;
+                ofrm.cadastroReceitasCToolStripMenuItem.Enabled = true;
+            }
+        }
+
+        private void DtG_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (DtG.Rows[e.RowIndex].DataBoundItem != null)
+            {
+                IngredienteReceita itemSelecionado = (IngredienteReceita)DtG.Rows[e.RowIndex].DataBoundItem;
+                if (DtG.Columns[e.ColumnIndex].Name == "Alterar")
+                {
+                    cmbIngredientes.SelectedValue = itemSelecionado.Ingrediente.ID;
+                    numQuantidade.Value = (decimal)itemSelecionado.Quantidade;
+
+                    ingredientesDaReceitaAtual.Remove(itemSelecionado);
+
+                    // 3. Atualiza o grid
+                    AtualizarGridIngredientes();
+                }
+                else if (DtG.Columns[e.ColumnIndex].Name == "Excluir")
+                {
+                    var confirmResult = MessageBox.Show("Tem certeza que deseja remover este ingrediente da receita?",
+                                             "Confirmar Exclusão",
+                                             MessageBoxButtons.YesNo,
+                                             MessageBoxIcon.Question);
+
+                    if (confirmResult == DialogResult.Yes)
+                    {
+                        // Remove o item da lista temporária
+                        ingredientesDaReceitaAtual.Remove(itemSelecionado);
+
+                        // Atualiza o grid para refletir a remoção
+                        AtualizarGridIngredientes();
+                    }
+                }
+            }
         }
     }
 }

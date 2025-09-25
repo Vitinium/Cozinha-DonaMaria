@@ -29,6 +29,11 @@
         private void InitializeComponent()
         {
             DtG = new DataGridView();
+            NomeIngrediente = new DataGridViewTextBoxColumn();
+            Quantidade = new DataGridViewTextBoxColumn();
+            Descricao = new DataGridViewTextBoxColumn();
+            Alterar = new DataGridViewButtonColumn();
+            Excluir = new DataGridViewButtonColumn();
             BtnSalvar = new Button();
             txtModoPreparo = new TextBox();
             LblDescricao = new Label();
@@ -43,11 +48,6 @@
             BtnAddIngrediente = new Button();
             label3 = new Label();
             numQuantidade = new NumericUpDown();
-            NomeIngrediente = new DataGridViewTextBoxColumn();
-            Quantidade = new DataGridViewTextBoxColumn();
-            Descricao = new DataGridViewTextBoxColumn();
-            Alterar = new DataGridViewButtonColumn();
-            Excluir = new DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)DtG).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numQuantidade).BeginInit();
             SuspendLayout();
@@ -62,6 +62,46 @@
             DtG.ReadOnly = true;
             DtG.Size = new Size(800, 124);
             DtG.TabIndex = 8;
+            DtG.CellClick += DtG_CellClick;
+            // 
+            // NomeIngrediente
+            // 
+            NomeIngrediente.DataPropertyName = "NomeIngrediente";
+            NomeIngrediente.HeaderText = "Ingrediente";
+            NomeIngrediente.Name = "NomeIngrediente";
+            NomeIngrediente.ReadOnly = true;
+            // 
+            // Quantidade
+            // 
+            Quantidade.DataPropertyName = "Quantidade";
+            Quantidade.HeaderText = "Quantidade";
+            Quantidade.Name = "Quantidade";
+            Quantidade.ReadOnly = true;
+            Quantidade.Width = 150;
+            // 
+            // Descricao
+            // 
+            Descricao.DataPropertyName = "Descricao";
+            Descricao.HeaderText = "Descrição";
+            Descricao.Name = "Descricao";
+            Descricao.ReadOnly = true;
+            Descricao.Width = 200;
+            // 
+            // Alterar
+            // 
+            Alterar.HeaderText = "Alterar";
+            Alterar.Name = "Alterar";
+            Alterar.ReadOnly = true;
+            Alterar.Text = "Alterar";
+            Alterar.UseColumnTextForButtonValue = true;
+            // 
+            // Excluir
+            // 
+            Excluir.HeaderText = "Excluir";
+            Excluir.Name = "Excluir";
+            Excluir.ReadOnly = true;
+            Excluir.Text = "Excluir";
+            Excluir.UseColumnTextForButtonValue = true;
             // 
             // BtnSalvar
             // 
@@ -184,45 +224,6 @@
             numQuantidade.Size = new Size(120, 23);
             numQuantidade.TabIndex = 17;
             // 
-            // NomeIngrediente
-            // 
-            NomeIngrediente.DataPropertyName = "NomeIngrediente";
-            NomeIngrediente.HeaderText = "Ingrediente";
-            NomeIngrediente.Name = "NomeIngrediente";
-            NomeIngrediente.ReadOnly = true;
-            // 
-            // Quantidade
-            // 
-            Quantidade.DataPropertyName = "Quantidade";
-            Quantidade.HeaderText = "Quantidade";
-            Quantidade.Name = "Quantidade";
-            Quantidade.ReadOnly = true;
-            Quantidade.Width = 150;
-            // 
-            // Descricao
-            // 
-            Descricao.DataPropertyName = "Descricao";
-            Descricao.HeaderText = "Descrição";
-            Descricao.Name = "Descricao";
-            Descricao.ReadOnly = true;
-            Descricao.Width = 200;
-            // 
-            // Alterar
-            // 
-            Alterar.HeaderText = "Alterar";
-            Alterar.Name = "Alterar";
-            Alterar.ReadOnly = true;
-            Alterar.Text = "Alterar";
-            Alterar.UseColumnTextForButtonValue = true;
-            // 
-            // Excluir
-            // 
-            Excluir.HeaderText = "Excluir";
-            Excluir.Name = "Excluir";
-            Excluir.ReadOnly = true;
-            Excluir.Text = "Excluir";
-            Excluir.UseColumnTextForButtonValue = true;
-            // 
             // FormCadastrarReceita
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -245,6 +246,7 @@
             Controls.Add(LblCod);
             Name = "FormCadastrarReceita";
             Text = "FormCadastrarReceita";
+            FormClosed += FormCadastrarReceita_FormClosed;
             Load += FormCadastrarReceita_Load;
             ((System.ComponentModel.ISupportInitialize)DtG).EndInit();
             ((System.ComponentModel.ISupportInitialize)numQuantidade).EndInit();

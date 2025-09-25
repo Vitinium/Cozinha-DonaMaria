@@ -16,9 +16,9 @@ namespace DonaMaria
         private Receita receitaParaExibir;
         public FormDetalhesReceita(Model.Receita receitaSelecionada)
         {
-                InitializeComponent();
-                this.receitaParaExibir = receitaSelecionada;
-            
+            InitializeComponent();
+            this.receitaParaExibir = receitaSelecionada;
+
         }
 
         private void FormDetalhesReceita_Load(object sender, EventArgs e)
@@ -29,13 +29,13 @@ namespace DonaMaria
                 txtID.Text = receitaParaExibir.ID.ToString();
                 txtNome.Text = receitaParaExibir.Nome;
                 txtModoPreparo.Text = receitaParaExibir.ModoPreparo;
-                // Deixa o modo de preparo como somente leitura
-                txtModoPreparo.ReadOnly = true;
+                txtTpCozinha.Text = receitaParaExibir.TipoCozinha?.Nome;
 
                 // Preenche o grid com a lista de ingredientes da receita
                 Dtg.AutoGenerateColumns = false;
                 Dtg.DataSource = receitaParaExibir.Ingredientes;
             }
         }
+
     }
 }

@@ -35,6 +35,8 @@
             Nome = new DataGridViewTextBoxColumn();
             Descricao = new DataGridViewTextBoxColumn();
             Abrir = new DataGridViewButtonColumn();
+            Alterar = new DataGridViewButtonColumn();
+            Excluir = new DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)DtG).BeginInit();
             SuspendLayout();
             // 
@@ -70,7 +72,7 @@
             // 
             DtG.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             DtG.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            DtG.Columns.AddRange(new DataGridViewColumn[] { Nome, Descricao, Abrir });
+            DtG.Columns.AddRange(new DataGridViewColumn[] { Nome, Descricao, Abrir, Alterar, Excluir });
             DtG.Location = new Point(12, 111);
             DtG.Name = "DtG";
             DtG.Size = new Size(778, 338);
@@ -94,6 +96,18 @@
             // 
             Abrir.HeaderText = "Abrir";
             Abrir.Name = "Abrir";
+            // 
+            // Alterar
+            // 
+            Alterar.DataPropertyName = "Alterar";
+            Alterar.HeaderText = "Alterar";
+            Alterar.Name = "Alterar";
+            // 
+            // Excluir
+            // 
+            Excluir.DataPropertyName = "Excluir";
+            Excluir.HeaderText = "Excluir";
+            Excluir.Name = "Excluir";
             // 
             // FormConsultarReceita
             // 
@@ -122,5 +136,7 @@
         private DataGridViewTextBoxColumn Nome;
         private DataGridViewTextBoxColumn Descricao;
         private DataGridViewButtonColumn Abrir;
+        private DataGridViewButtonColumn Alterar;
+        private DataGridViewButtonColumn Excluir;
     }
 }
