@@ -16,7 +16,7 @@ namespace DonaMaria.Model
         public List<Receita> receitas { get; set; }
 
         // Coleção estática para armazenar os ingredientes em memória
-        public static List<TipoCozinha> TiposCozinha;
+        public static List<TipoCozinha> TiposCozinha = new List<TipoCozinha>();
 
         public static List<TipoCozinha> SelecionarTodos()
         {

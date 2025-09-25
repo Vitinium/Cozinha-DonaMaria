@@ -29,16 +29,16 @@
         private void InitializeComponent()
         {
             label1 = new Label();
-            textBox1 = new TextBox();
+            txtID = new TextBox();
             label2 = new Label();
-            textBox2 = new TextBox();
+            txtNome = new TextBox();
             label3 = new Label();
-            textBox3 = new TextBox();
-            dataGridView1 = new DataGridView();
-            Ingrediente = new DataGridViewTextBoxColumn();
-            Qtd = new DataGridViewTextBoxColumn();
+            txtModoPreparo = new TextBox();
+            Dtg = new DataGridView();
+            NomeIngrediente = new DataGridViewTextBoxColumn();
+            Quantidade = new DataGridViewTextBoxColumn();
             Descricao = new DataGridViewTextBoxColumn();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)Dtg).BeginInit();
             SuspendLayout();
             // 
             // label1
@@ -50,12 +50,13 @@
             label1.TabIndex = 0;
             label1.Text = "Código";
             // 
-            // textBox1
+            // txtID
             // 
-            textBox1.Location = new Point(12, 27);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(119, 23);
-            textBox1.TabIndex = 1;
+            txtID.Enabled = false;
+            txtID.Location = new Point(12, 28);
+            txtID.Name = "txtID";
+            txtID.Size = new Size(119, 23);
+            txtID.TabIndex = 1;
             // 
             // label2
             // 
@@ -66,12 +67,13 @@
             label2.TabIndex = 2;
             label2.Text = "Nome";
             // 
-            // textBox2
+            // txtNome
             // 
-            textBox2.Location = new Point(137, 27);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(651, 23);
-            textBox2.TabIndex = 3;
+            txtNome.Enabled = false;
+            txtNome.Location = new Point(137, 27);
+            txtNome.Name = "txtNome";
+            txtNome.Size = new Size(651, 23);
+            txtNome.TabIndex = 3;
             // 
             // label3
             // 
@@ -82,38 +84,42 @@
             label3.TabIndex = 4;
             label3.Text = "Modo de preparo";
             // 
-            // textBox3
+            // txtModoPreparo
             // 
-            textBox3.Location = new Point(12, 80);
-            textBox3.Multiline = true;
-            textBox3.Name = "textBox3";
-            textBox3.ScrollBars = ScrollBars.Vertical;
-            textBox3.Size = new Size(776, 205);
-            textBox3.TabIndex = 5;
+            txtModoPreparo.Enabled = false;
+            txtModoPreparo.Location = new Point(12, 80);
+            txtModoPreparo.Multiline = true;
+            txtModoPreparo.Name = "txtModoPreparo";
+            txtModoPreparo.ScrollBars = ScrollBars.Vertical;
+            txtModoPreparo.Size = new Size(776, 205);
+            txtModoPreparo.TabIndex = 5;
             // 
-            // dataGridView1
+            // Dtg
             // 
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { Ingrediente, Qtd, Descricao });
-            dataGridView1.Location = new Point(13, 291);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.Size = new Size(775, 160);
-            dataGridView1.TabIndex = 6;
+            Dtg.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            Dtg.Columns.AddRange(new DataGridViewColumn[] { NomeIngrediente, Quantidade, Descricao });
+            Dtg.Location = new Point(13, 291);
+            Dtg.Name = "Dtg";
+            Dtg.Size = new Size(775, 160);
+            Dtg.TabIndex = 6;
             // 
-            // Ingrediente
+            // NomeIngrediente
             // 
-            Ingrediente.HeaderText = "Ingrediente";
-            Ingrediente.Name = "Ingrediente";
-            Ingrediente.Width = 200;
+            NomeIngrediente.DataPropertyName = "NomeIngrediente";
+            NomeIngrediente.HeaderText = "Ingrediente";
+            NomeIngrediente.Name = "NomeIngrediente";
+            NomeIngrediente.Width = 200;
             // 
-            // Qtd
+            // Quantidade
             // 
-            Qtd.HeaderText = "Qtd";
-            Qtd.Name = "Qtd";
-            Qtd.Width = 50;
+            Quantidade.DataPropertyName = "Quantidade";
+            Quantidade.HeaderText = "Qtd";
+            Quantidade.Name = "Quantidade";
+            Quantidade.Width = 50;
             // 
             // Descricao
             // 
+            Descricao.DataPropertyName = "Descricao";
             Descricao.HeaderText = "Descrição";
             Descricao.Name = "Descricao";
             Descricao.Width = 450;
@@ -123,16 +129,17 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
-            Controls.Add(dataGridView1);
-            Controls.Add(textBox3);
+            Controls.Add(Dtg);
+            Controls.Add(txtModoPreparo);
             Controls.Add(label3);
-            Controls.Add(textBox2);
+            Controls.Add(txtNome);
             Controls.Add(label2);
-            Controls.Add(textBox1);
+            Controls.Add(txtID);
             Controls.Add(label1);
             Name = "FormDetalhesReceita";
             Text = "FormDetalhesReceita";
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            Load += FormDetalhesReceita_Load;
+            ((System.ComponentModel.ISupportInitialize)Dtg).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -140,14 +147,14 @@
         #endregion
 
         private Label label1;
-        private TextBox textBox1;
+        private TextBox txtID;
         private Label label2;
-        private TextBox textBox2;
+        private TextBox txtNome;
         private Label label3;
-        private TextBox textBox3;
-        private DataGridView dataGridView1;
-        private DataGridViewTextBoxColumn Ingrediente;
-        private DataGridViewTextBoxColumn Qtd;
+        private TextBox txtModoPreparo;
+        private DataGridView Dtg;
+        private DataGridViewTextBoxColumn NomeIngrediente;
+        private DataGridViewTextBoxColumn Quantidade;
         private DataGridViewTextBoxColumn Descricao;
     }
 }

@@ -34,3 +34,5 @@ C:\Users\antpe\Source\Repos\Cozinha-DonaMaria\DonaMaria\obj\Debug\net8.0-windows
 C:\Users\antpe\Source\Repos\Cozinha-DonaMaria\DonaMaria\obj\Debug\net8.0-windows\ref\DonaMaria.dll
 C:\Users\antpe\Source\Repos\Cozinha-DonaMaria\DonaMaria\obj\Debug\net8.0-windows\DonaMaria.FormCadastrarIngrediente.resources
 C:\Users\antpe\Source\Repos\Cozinha-DonaMaria\DonaMaria\obj\Debug\net8.0-windows\DonaMaria.FormCadastrarTpCozinha.resources
+C:\Users\antpe\Source\Repos\Cozinha-DonaMaria\DonaMaria\obj\Debug\net8.0-windows\DonaMaria.FormCadastrarReceita.resources
+C:\Users\antpe\Source\Repos\Cozinha-DonaMaria\DonaMaria\obj\Debug\net8.0-windows\DonaMaria.FormMenu.resources

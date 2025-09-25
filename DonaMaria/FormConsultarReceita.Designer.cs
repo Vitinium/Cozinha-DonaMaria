@@ -31,11 +31,11 @@
             label1 = new Label();
             TxtFiltro = new TextBox();
             BtnFiltro = new Button();
-            dataGridView1 = new DataGridView();
+            DtG = new DataGridView();
             Nome = new DataGridViewTextBoxColumn();
             Descricao = new DataGridViewTextBoxColumn();
-            BtnAbrir = new DataGridViewButtonColumn();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            Abrir = new DataGridViewButtonColumn();
+            ((System.ComponentModel.ISupportInitialize)DtG).BeginInit();
             SuspendLayout();
             // 
             // label1
@@ -64,46 +64,50 @@
             BtnFiltro.TabIndex = 2;
             BtnFiltro.Text = "Localizar receita";
             BtnFiltro.UseVisualStyleBackColor = true;
+            BtnFiltro.Click += BtnFiltro_Click;
             // 
-            // dataGridView1
+            // DtG
             // 
-            dataGridView1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { Nome, Descricao, BtnAbrir });
-            dataGridView1.Location = new Point(12, 111);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.Size = new Size(778, 338);
-            dataGridView1.TabIndex = 3;
+            DtG.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            DtG.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            DtG.Columns.AddRange(new DataGridViewColumn[] { Nome, Descricao, Abrir });
+            DtG.Location = new Point(12, 111);
+            DtG.Name = "DtG";
+            DtG.Size = new Size(778, 338);
+            DtG.TabIndex = 3;
+            DtG.CellContentClick += dataGridView1_CellContentClick;
             // 
             // Nome
             // 
+            Nome.DataPropertyName = "Nome";
             Nome.HeaderText = "Nome da receita";
             Nome.Name = "Nome";
             // 
             // Descricao
             // 
+            Descricao.DataPropertyName = "ModoPreparo";
             Descricao.HeaderText = "Descrição da receita";
             Descricao.Name = "Descricao";
             Descricao.Width = 350;
             // 
-            // BtnAbrir
+            // Abrir
             // 
-            BtnAbrir.HeaderText = "Abrir";
-            BtnAbrir.Name = "BtnAbrir";
+            Abrir.HeaderText = "Abrir";
+            Abrir.Name = "Abrir";
             // 
             // FormConsultarReceita
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
-            Controls.Add(dataGridView1);
+            Controls.Add(DtG);
             Controls.Add(BtnFiltro);
             Controls.Add(TxtFiltro);
             Controls.Add(label1);
             Name = "FormConsultarReceita";
             Text = "FormConsultarReceita";
             Load += FormConsultarReceita_Load;
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)DtG).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -113,9 +117,9 @@
         private Label label1;
         private TextBox TxtFiltro;
         private Button BtnFiltro;
-        private DataGridView dataGridView1;
+        private DataGridView DtG;
         private DataGridViewTextBoxColumn Nome;
         private DataGridViewTextBoxColumn Descricao;
-        private DataGridViewButtonColumn BtnAbrir;
+        private DataGridViewButtonColumn Abrir;
     }
 }
