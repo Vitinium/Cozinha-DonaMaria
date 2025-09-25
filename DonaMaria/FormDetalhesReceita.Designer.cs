@@ -78,9 +78,9 @@
             label3.AutoSize = true;
             label3.Location = new Point(12, 62);
             label3.Name = "label3";
-            label3.Size = new Size(58, 15);
+            label3.Size = new Size(99, 15);
             label3.TabIndex = 4;
-            label3.Text = "Descrição";
+            label3.Text = "Modo de preparo";
             // 
             // textBox3
             // 

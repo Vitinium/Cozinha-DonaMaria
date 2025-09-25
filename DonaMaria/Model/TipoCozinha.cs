@@ -8,67 +8,48 @@ namespace DonaMaria.Model
 {
     public class TipoCozinha
     {
+        // Propriedades da classe, conforme o diagrama
         public int ID { get; set; }
         public string Nome { get; set; }
         public string Descricao { get; set; }
 
+        public List<Receita> receitas { get; set; }
 
-        // A lista é 'static' para ser única e compartilhada por toda a aplicação.
-        public static List<TipoCozinha> TiposCozinha = new List<TipoCozinha>();
+        // Coleção estática para armazenar os ingredientes em memória
+        public static List<TipoCozinha> TiposCozinha;
 
-        // --- MÉTODOS PARA MANIPULAR OS DADOS NA MEMÓRIA ---
-
-        /// <summary>
-        /// Retorna uma cópia da lista de todos os tipos de cozinha cadastrados.
-        /// </summary>
         public static List<TipoCozinha> SelecionarTodos()
         {
-            // Retorna uma nova lista para proteger a lista original
-            return new List<TipoCozinha>(TiposCozinha);
+            // Usando LINQ para retornar uma nova lista, garantindo a atualização na tela
+            return (from p in TipoCozinha.TiposCozinha select p).ToList();
         }
 
-        /// <summary>
-        /// Busca um tipo de cozinha pelo seu ID.
-        /// </summary>
-        public static TipoCozinha SelecionarPeloID(int id)
+        public static TipoCozinha? SelecionarPeloID(int Id)
         {
-            return TiposCozinha.FirstOrDefault(t => t.ID == id);
+            return (from p in TipoCozinha.TiposCozinha where p.ID == Id select p).FirstOrDefault();
         }
 
-        /// <summary>
-        /// Adiciona o objeto atual (this) à lista em memória, gerando um novo ID.
-        /// </summary>
-        public void Incluir()
+        public int Incluir()
         {
-            // Lógica para gerar um ID automático
             int novoId = 1;
-            if (TiposCozinha.Any())
+            var MaiorNumero = (from p in TipoCozinha.TiposCozinha orderby p.ID descending select p.ID).FirstOrDefault();
+            if (MaiorNumero != null)
             {
-                novoId = TiposCozinha.Max(t => t.ID) + 1;
+                novoId = MaiorNumero + 1;
             }
             this.ID = novoId;
-
             TiposCozinha.Add(this);
+            return this.ID;
         }
 
-        /// <summary>
-        /// Remove um tipo de cozinha da lista pelo ID.
-        /// </summary>
         public static void Excluir(int id)
         {
-            var tipoParaExcluir = SelecionarPeloID(id);
-            if (tipoParaExcluir != null)
+            TipoCozinha? oTipoCozinha = TipoCozinha.SelecionarPeloID(id);
+            if (oTipoCozinha != null)
             {
-                TiposCozinha.Remove(tipoParaExcluir);
+                TipoCozinha.TiposCozinha.Remove(oTipoCozinha);
             }
-        }
-
-        /// <summary>
-        /// RN02: Verifica se o nome já existe na lista, ignorando o ID do item atual (para edições).
-        /// </summary>
-        public static bool NomeJaExiste(string nome, int idParaIgnorar = 0)
-        {
-            return TiposCozinha.Any(t => t.Nome.Equals(nome, System.StringComparison.OrdinalIgnoreCase) && t.ID != idParaIgnorar);
         }
     }
 }
+
