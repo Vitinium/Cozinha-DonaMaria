@@ -17,41 +17,50 @@ namespace DonaMaria
             DtG.DataSource = Ingrediente.SelecionarTodos(); // Carrega os dados iniciais
         }
 
-        private bool VerificaControles()
-        {
-            if (TxtNome.Text.Trim() == "")
-            {
-                MessageBox.Show("O campo Nome é obrigatório.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return false;
-            }
-            return true;
-        }
-
         private void BtnSalvar_Click(object sender, EventArgs e)
         {
-            if (VerificaControles())
+            string acao = BtnSalvar.Text;
+            if (string.IsNullOrWhiteSpace(TxtNome.Text))
             {
-                if (BtnSalvar.Text == "Salvar")
+                MessageBox.Show(
+                    acao == "Salvar"
+                        ? "Você não pode salvar um ingrediente sem Nome!"
+                        : "Você não pode alterar um ingrediente e deixá-lo sem Nome!",
+                    "Erro",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error
+                );
+                TxtNome.Focus();
+                return;
+            }
+
+            if (acao == "Salvar")
+            {
+                Ingrediente oIngrediente = new Ingrediente();
+                oIngrediente.Nome = TxtNome.Text;
+                oIngrediente.Descricao = TxtDescricao.Text;
+                oIngrediente.Incluir();
+            }
+            else
+            {
+                Ingrediente? oIngrediente = Ingrediente.SelecionarPeloID(int.Parse(TxtCod.Text));
+                if (oIngrediente != null)
                 {
-                    Ingrediente oIngrediente = new Ingrediente();
                     oIngrediente.Nome = TxtNome.Text;
                     oIngrediente.Descricao = TxtDescricao.Text;
-                    oIngrediente.Incluir();
-                    DtG.DataSource = Ingrediente.SelecionarTodos();
                 }
-                else 
+                else
                 {
-                    Ingrediente? oIngrediente = Ingrediente.SelecionarPeloID(int.Parse(TxtCod.Text));
-                    if (oIngrediente != null)
-                    {
-                        oIngrediente.Nome = TxtNome.Text;
-                        oIngrediente.Descricao = TxtDescricao.Text;
-                    }
+                    MessageBox.Show("Ingrediente não encontrado para alteração.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
                 }
-                LimparCampos();
-                DtG.DataSource = Ingrediente.SelecionarTodos();
             }
+
+            DtG.DataSource = Ingrediente.SelecionarTodos();
+            LimparCampos();
         }
+
+
 
         private void LimparCampos()
         {
@@ -77,12 +86,12 @@ namespace DonaMaria
                 else if (DtG.Columns[e.ColumnIndex].Name == "Excluir")
                 {
                     Ingrediente oIngrediente = (Ingrediente)DtG.Rows[e.RowIndex].DataBoundItem;
-                    var confirmResult = MessageBox.Show($"Tem certeza que deseja excluir o ingrediente '{oIngrediente.Nome}'?", 
-                                                         "Confirmação de Exclusão", 
-                                                         MessageBoxButtons.YesNo, 
+                    var confirmResult = MessageBox.Show($"Tem certeza que deseja excluir o ingrediente '{oIngrediente.Nome}'?",
+                                                         "Confirmação de Exclusão",
+                                                         MessageBoxButtons.YesNo,
                                                          MessageBoxIcon.Question);
                     if (confirmResult == DialogResult.Yes)
-                    {    
+                    {
                         Ingrediente.Excluir(oIngrediente.ID);
                         DtG.DataSource = Ingrediente.SelecionarTodos();
                         LimparCampos();
@@ -90,6 +99,13 @@ namespace DonaMaria
                 }
             }
 
+        }
+
+        private void FormCadastrarIngrediente_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            FormMenu oFrm = (FormMenu)this.MdiParent;
+            oFrm.cadastroIngredientesToolStripMenuItem1.Enabled = true;
+            oFrm.cadastroIngredientesCToolStripMenuItem1.Enabled = true;
         }
     }
 }

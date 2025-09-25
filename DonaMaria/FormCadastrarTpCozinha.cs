@@ -96,5 +96,12 @@ namespace DonaMaria
                 }
             }
         }
+
+        private void FormCadastrarTpCozinha_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            FormMenu oFrm = (FormMenu)this.MdiParent;
+            oFrm.cadastroTipoDeCozinhaToolStripMenuItem.Enabled = true;
+            oFrm.cadastroTipoDeCozinhaCToolStripMenuItem.Enabled = true;
+        }
     }
 }

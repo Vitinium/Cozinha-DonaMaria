@@ -42,5 +42,12 @@ namespace DonaMaria
                 formDetalhes.ShowDialog();
             }
         }
+
+        private void FormConsultarReceita_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            FormMenu oFrm = (FormMenu)this.MdiParent;
+            oFrm.consultaReceitasToolStripMenuItem.Enabled = true;
+            oFrm.consultaReceitasCToolStripMenuItem.Enabled = true;
+        }
     }
 }

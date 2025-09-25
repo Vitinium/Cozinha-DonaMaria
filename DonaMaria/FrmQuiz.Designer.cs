@@ -242,6 +242,7 @@
             Controls.Add(label1);
             Name = "FrmQuiz";
             Text = "Quiz";
+            FormClosed += FrmQuiz_FormClosed;
             ((System.ComponentModel.ISupportInitialize)imgFood).EndInit();
             ResumeLayout(false);
             PerformLayout();

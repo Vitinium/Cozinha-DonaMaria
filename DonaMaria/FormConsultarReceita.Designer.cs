@@ -106,6 +106,7 @@
             Controls.Add(label1);
             Name = "FormConsultarReceita";
             Text = "FormConsultarReceita";
+            FormClosed += FormConsultarReceita_FormClosed;
             Load += FormConsultarReceita_Load;
             ((System.ComponentModel.ISupportInitialize)DtG).EndInit();
             ResumeLayout(false);

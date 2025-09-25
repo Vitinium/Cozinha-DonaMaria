@@ -12,8 +12,8 @@
       }
     ],
     "additionalProbingPaths": [
-      "C:\\Users\\antpe\\.dotnet\\store\\|arch|\\|tfm|",
-      "C:\\Users\\antpe\\.nuget\\packages",
+      "C:\\Users\\Micro\\.dotnet\\store\\|arch|\\|tfm|",
+      "C:\\Users\\Micro\\.nuget\\packages",
       "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
     ],
     "configProperties": {

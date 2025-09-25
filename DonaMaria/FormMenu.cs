@@ -20,14 +20,17 @@ namespace DonaMaria
         private void cadastroIngredientesToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             FormCadastrarIngrediente form = new FormCadastrarIngrediente();
+            cadastroIngredientesToolStripMenuItem1.Enabled = false;
+            cadastroIngredientesCToolStripMenuItem1.Enabled = false;
             form.MdiParent = this;
             form.Show();
-
         }
 
         private void cadastroTipoDeCozinhaToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FormCadastrarTpCozinha form = new FormCadastrarTpCozinha();
+            cadastroTipoDeCozinhaToolStripMenuItem.Enabled = false;
+            cadastroTipoDeCozinhaCToolStripMenuItem.Enabled = false;
             form.MdiParent = this;
             form.Show();
         }
@@ -35,6 +38,8 @@ namespace DonaMaria
         private void cadastroReceitasToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FormCadastrarReceita form = new FormCadastrarReceita();
+            cadastroReceitasToolStripMenuItem.Enabled = false;
+            cadastroReceitasCToolStripMenuItem.Enabled = false;
             form.MdiParent = this;
             form.Show();
         }
@@ -42,8 +47,36 @@ namespace DonaMaria
         private void consultaReceitasToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FormConsultarReceita form = new FormConsultarReceita();
+            consultaReceitasToolStripMenuItem.Enabled = false;
+            consultaReceitasCToolStripMenuItem.Enabled = false;
             form.MdiParent = this;
             form.Show();
+        }
+
+
+        private void fecharToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var x = MessageBox.Show("Você tem certeza que deseja fechar o Sistema?", "Atenção", MessageBoxButtons.YesNo);
+            if (x == DialogResult.Yes)
+            {
+                this.Close();
+            }
+            else
+            {
+                return;
+
+            }
+
+        }
+
+        private void quizSobreAMatériaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmQuiz form = new FrmQuiz();
+            quizSobreAMatériaToolStripMenuItem.Enabled = false;
+            quizToolStripMenuItem.Enabled = false;
+            form.MdiParent = this;
+            form.Show();
+
         }
     }
 }

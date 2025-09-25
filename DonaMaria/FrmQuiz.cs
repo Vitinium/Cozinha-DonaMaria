@@ -136,5 +136,12 @@ namespace DonaMaria
         {
             Application.Restart();
         }
+
+        private void FrmQuiz_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            FormMenu oFrm = (FormMenu)this.MdiParent;
+            oFrm.quizSobreAMatériaToolStripMenuItem.Enabled = true;
+            oFrm.quizToolStripMenuItem.Enabled = true;
+        }
     }
 }

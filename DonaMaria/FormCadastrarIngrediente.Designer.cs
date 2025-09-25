@@ -167,6 +167,7 @@
             Controls.Add(LblCod);
             Name = "FormCadastrarIngrediente";
             Text = "Cadastrar ingrediente";
+            FormClosed += FormCadastrarIngrediente_FormClosed;
             Load += Form1_Load;
             ((System.ComponentModel.ISupportInitialize)DtG).EndInit();
             ResumeLayout(false);

@@ -172,6 +172,7 @@
             Controls.Add(LblCod);
             Name = "FormCadastrarTpCozinha";
             Text = "FormCadastrarTpCozinha";
+            FormClosed += FormCadastrarTpCozinha_FormClosed;
             Load += FormCadastrarTpCozinha_Load;
             ((System.ComponentModel.ISupportInitialize)DtG).EndInit();
             ResumeLayout(false);
